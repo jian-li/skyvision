@@ -3,3 +3,6 @@ CFLAGS = -I.
 
 hellomake: hellomake.o hellofunc.o
 	${CC} -o hellomake hellomake.o hellofunc.o -I.
+
+clean:
+	rm *.o hellomake

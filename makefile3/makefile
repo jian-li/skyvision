@@ -8,3 +8,6 @@ DEPS = hellomake.h
 hellomake: hellomake.o hellofunc.o 
 	gcc -o hellomake hellomake.o hellofunc.o -I.
 
+clean:
+	rm *.o hellomake
+

@@ -7,11 +7,12 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = hellomake.h
+_DEPS = $(wildcard IDIR/*.h)
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = hellomake.o hellofunc.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+_SRC = $(wildcard ./*.c) 
+OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 
 
 $(ODIR)/%.o: %.c $(DEPS)
@@ -23,4 +24,4 @@ hellomake: $(OBJ)
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o hellomake $(INCDIR)/*~ 
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
